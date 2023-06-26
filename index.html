@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        .login {
+            width: 400px;
+            margin: 30px auto;
+        }
+        input {
+            width: 100%;
+        }
+        .title{
+            width: 150px;
+            color:green;
+            font-weight: bold;
+            margin-left:13px;
+        }
+        .title::before{
+            background-image: url(./icon/li.jpg);
+            display: block;
+            width: 10px;
+            height: 40px;
+            content:"";
+            position: relative;
+            top:38px;
+            left:-13px;
+        }
+        form{
+            margin-top:10px;
+        }
+        form input{
+            height: 30px;
+            margin-top:10px;
+            padding-left: 30px;
+        }
+        .u::before{
+            background-image: url(./icon/icon1.png);
+            display: block;
+            width: 17px;
+            height: 17px;
+            content:"";
+            position: relative;
+            top: 36px;
+            left: 5px;
+        }
+        .p::before{
+            background-image: url(./icon/icon2.png);
+            display: block;
+            width: 17px;
+            height: 17px;
+            content:"";
+            position: relative;
+            top: 36px;
+            left: 5px;
+        }
+        .sub{
+            width: 436px;
+            height: 33px;
+            background-color: green;
+            color:#fff;
+        }
+        .bt{
+            height: 33px;
+            line-height: 33px;
+        }
+        .bt span{
+            float: left;
+        }
+        .bt span input{
+            width: 20px;
+        }
+        .bt p{
+            float: right;
+        }
+        .bott{
+            text-align: center;
+            color:green;
+            margin-top:30px;
+            font-weight: bold;
+            margin-left: 149px;
+        }
+        #errorMessage{
+            color:red;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="login">
+        <div class="title">
+            会员中心<br>
+            Menber Center
+        </div>
+        <form action="" id="myForm">
+            <div class="u">
+                <input type="text" placeholder="用户名" id="user"> <br>
+            </div>
+            <div class="p">
+                <input type="password" placeholder="密码" id="pswd"><br>
+            </div>
+            
+            <input type="submit" value="登录" class="sub"> <br>
+            <div class="bt">
+                <span><input type="checkbox" name="reading" checked value="阅读">下次自动登陆</span>
+                <p>忘记密码?</p>
+            </div>
+            <div id="errorMessage"></div>
+        </form>
+        <div class="bott">
+            免费注册
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // 阻止表单提交
+
+      // 获取输入值
+      var candidateNumber = document.getElementById("user").value;
+      var examNumber = document.getElementById("pswd").value;
+
+      console.log(candidateNumber , examNumber);
+
+
+
+      // 进行验证
+      if (candidateNumber !== "122429") {
+        document.getElementById("errorMessage").textContent = "输入号码错误";
+      } else if (!isNaN(examNumber)) {
+        document.getElementById("errorMessage").textContent = "密码不能为数字";
+      } else {
+        document.getElementById("errorMessage").textContent = "登录成功";
+      }
+    });
+    </script>
+</body>
+</html>
